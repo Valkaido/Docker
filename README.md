@@ -7,6 +7,16 @@
 * venv
 * flask
 
+## Configuration
+
+### Configuration docker-compose.yml
+```
+$  flaskapp:
+$    build: .
+$    ports:
+$      - "5000:5000"
+```
+
 ## Installation
 
 ### Installation manuelle de la flaskapp
