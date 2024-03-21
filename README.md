@@ -45,7 +45,7 @@ Enfin, au sein du répertoire "grafana" se trouve un autre fichier de configurat
 
 
 ## Utilisation de l'application
-Pour utiliser l'application, il suffit d'exécuter la commande suivante au sein de la racine du projet (`dans notre cas, ~/Docker`) :
+Pour utiliser l'application, il suffit d'exécuter la commande suivante au sein de la racine du projet (dans notre cas, `~/Docker`) :
 ```
 $ docker compose up -d
 ```
