@@ -2,12 +2,14 @@
 
 ## Résumé du projet
 La société Dock In Space souhaite moderniser son application existante réalisée de manière monolithique dans son datacenter par une nouvelle application en utilisant des conteneurs Docker.
+
 Pour ce faire, elle aimerait qu'un prototype d'application voit le jour avec les critères suivants :
 - Une application conteneurisée personnelle, avec flask et python.
 - Un conteneur exécutant l'application Prometheus, permettant de logger les metrics de l'application précédentes.
 - Un conteneur exécutant l'application Grafana, pour créer des dashboards à partir des logs collectés
 
 Pour la réalisation de ce projet, nous avons utilisé des éléments nécessaires à l'application pour fonctionner. Dans un but d'extension future, le fichier "requirements.txt" possède des paquets en plus, non utilisés actuellement, mais qui pourraient voir un usage éventuel à l'avenir.
+
 Cependant, ce fichier possède notamment des paquets nécessaies, comme flask ou python, qu'il est urgent de ne pas supprimer.
 
 
@@ -51,10 +53,11 @@ $ docker compose up -d
 ```
 
 L'exécution de cette commande permet à la lecture du fichier YAML d'exécuter nos applications conteneurisées. Fait intéressant, le suffixe `-d` indique à l'interpréteur de commandes de s'exécuter en mode détaché, ce qui permet d'utiliser son terminal après exécution.
+
 Il reste néanmoins possible d'exécuter le logiciel sans ce flag, ce qui vous permettra de logger en temps réel le fonctionnement de l'application.
 
 
-## Réalisation du TP étape par étapes
+## Réalisation du TP étapes par étapes
 Dans le cadre d'un exercice noté de cours, voici une description de la procédure suivie à la réalisation de ce projet.
 
 ### Installation manuelle de la flaskapp
@@ -83,5 +86,7 @@ $ docker run -d -p 5000:5000 flaskapp:latest
 
 ### Création du Docker compose
 Pour lier tous les éléments ensemble, il aura fallu éditer le code app.py pour ajouter les éléments qui permettent de trigger les metrics de Prometheus. 
+
 Suite à cela, nous avons procédé à la création de deux répertoires : "Grafana" et "Prometheus" contenant des fichiers de configuration relatifs à ces outils, que nous avons par la suite liés à des volumes Docker de sorte à injecter les fichiers de configuration à l'intérieur du conteneur. Cela nous permet d'avoir deux hôtes conteneurisant ces applications.
+
 Une partie a été ajoutée en fin de fichier pour utiliser notre propre image docker relative à notre flaskapp. Les configurations de grafana et de prometheus ont été également modifiées pour supporter les metrics de l'application.
